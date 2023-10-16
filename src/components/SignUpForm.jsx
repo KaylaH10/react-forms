@@ -9,11 +9,16 @@ export default function SignUpForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     console.log("Hello 👋");
-  }
 
-  try {
-  } catch (error) {
-    setError(error.message);
+    try {
+      const response = await fetch(
+        "https://fsa-jwt-practice.herokuapp.com/signup"
+      );
+      const result = await response.json();
+      console.log(result);
+    } catch (error) {
+      setError(error.message);
+    }
   }
 
   return (
